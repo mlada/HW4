@@ -8,8 +8,28 @@
 <body>
 
 
-<script>
-    
+<script> 
+	let url1 = 'http://crosti.ru/patterns/00/09/62/69d109c42c/picture.jpg';
+    let p = new Promise((resolve,reject) => {
+    	let i = new Image();
+    	document.body.appendChild(i);
+    	i.src = url1;
+    	i.addEventListener('load',() => {
+    		resolve();
+    	});
+    	i.addEventListener('error',() =>{
+    		reject();
+    	});
+    });
+
+    p.then(() => {
+    	console.log('succses');
+    },
+    () => {
+    	console.log('error');
+    }
+    );
+
 </script>
 </body>
 </html>
